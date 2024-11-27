@@ -1,5 +1,5 @@
 const createConnection = require ('../db');
-const {Request, TYPES} = require("tedious");
+const {Request, type} = require("tedious");
 
 exports.getAllUsers = (callback) => {
     const connection = createConnection();
