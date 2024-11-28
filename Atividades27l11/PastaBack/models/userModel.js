@@ -10,7 +10,7 @@ exports.getAllUsers = (callback) => {
     if (err) {
       return callback(err, null); // Trata erros de conexão
     }
-    const query = `SELECT * FROM Users1`; // SQL para buscar todos os usuários
+    const query = `SELECT * FROM users1`; // SQL para buscar todos os usuários
     const request = new Request(query, (err, rowCount) => {
       if (err) {
         return callback(err, null); // Trata erros de execução da consulta
@@ -48,7 +48,7 @@ exports.createUser = (data, callback) => {
     if (err) {
       return callback(err, null); // Trata erros de conexão
     }
-    const query = `INSERT INTO Users1 (name, age, email, contact) VALUES (@name, @age, @email, @contact)`; // SQL para inserir um novo usuário
+    const query = `INSERT INTO users1 (name, age, email, contact) VALUES (@name, @age, @email, @contact)`; // SQL para inserir um novo usuário
     const request = new Request(query, (err) => {
       if (err) {
         callback(err); // Retorna erro se houver falha
@@ -75,7 +75,7 @@ exports.updateUser = (id, name, age, email, contact, callback) => {
       return callback(err, null); // Trata erros de conexão
     }
     const query = `
-      UPDATE Users1 
+      UPDATE users1 
       SET name = @name, age = @age, email = @email, contact = @contact 
       WHERE id = @id
     `; // SQL para atualizar o usuário
@@ -108,7 +108,7 @@ exports.deleteUser = (id, callback) => {
     if (err) {
       return callback(err, null); // Trata erros de conexão
     }
-    const query = `DELETE FROM Users1 WHERE id = @id`; // SQL para deletar o usuário
+    const query = `DELETE FROM users1 WHERE id = @id`; // SQL para deletar o usuário
     const request = new Request(query, (err) => {
       if (err) {
         callback(err); // Retorna erro se houver falha
@@ -137,7 +137,7 @@ exports.getUserById = (id, callback) => {
       return callback(err, null);
     }
 
-    const query = `SELECT * FROM Users1 WHERE id = @id`;
+    const query = `SELECT * FROM users1 WHERE id = @id`;
     const request = new Request(query, (err, rowCount) => {
       if (err) {
         return callback(err, null);
