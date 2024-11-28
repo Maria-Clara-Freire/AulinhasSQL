@@ -1,10 +1,11 @@
-//index
-const express = require('express');
-const app = express();
-const cors = require("cors")
-const userRoutes = require('./routes/userRoutes'); // Importa as rotas de usuários
+// index.js
 
-//Habilita CORS para pemitir requisições de origens diferentes
+const express = require("express");
+const app = express();
+const cors = require("cors");
+const userRoutes = require("./routes/userRoutes"); // Importa as rotas de usuários
+
+// Habilita CORS para permitir requisições de origens diferentes
 app.use(cors());
 
 // Middleware para interpretar JSON no corpo das requisições
@@ -15,5 +16,5 @@ app.use(userRoutes);
 
 // Inicia o servidor na porta 3000
 app.listen(3000, () => {
-console.log('Servidor rodando em http://localhost:3000');
+  console.log("Servidor rodando em http://localhost:3000");
 });
